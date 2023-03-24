@@ -24,14 +24,13 @@ def process_queries(queries):
         elif cur_query.type == 'del':
             contacts.pop(cur_query.number,"")
         else:
-            response = 'not found'
+            response = str
             try:
                 response=str(contacts[cur_query.number])
             except:
-                response=response
+                response='not found'
             result.append(response)
     return result
 
 if __name__ == '__main__':
     write_responses(process_queries(read_queries()))
-
